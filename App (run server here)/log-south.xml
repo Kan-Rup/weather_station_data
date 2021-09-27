@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<weather-data>
+
+    
+    <entry>
+        
+        <index>6</index>
+        
+        <day>26</day>
+        <month>10</month>
+        <year>2021</year>
+        
+        <date>2021-10-26</date>
+        <location>Sl-south</location>
+        
+        
+        <rainfall>there was no rainfall today</rainfall>
+        <temperature>23º C</temperature>
+        <dryspell>air was dry today</dryspell>
+        <frost>there was no frost</frost>
+        <mist>there was mist in morning in area-b, in evening in area-a</mist>
+        <fog>there was no fog today.</fog>
+        <sunny>it was fully sunny today</sunny>
+        <overcast>it was not overcast today</overcast>
+        
+    </entry>
+    
+    <entry>
+        
+        <index>5</index>
+        
+        <day>21</day>
+        <month>10</month>
+        <year>2021</year>
+        
+        <date>2021-10-21</date>
+        <location>Sl-south</location>
+        
+        
+        <rainfall>there was a small amount of rainfall in area-a.</rainfall>
+        <temperature>26º C</temperature>
+        <dryspell>the air was slightly humid</dryspell>
+        <frost>there was no frost today</frost>
+        <mist>there was no mist today</mist>
+        <fog>there was no fog today</fog>
+        <sunny>today was not sunny</sunny>
+        <overcast>today was mostly overcast</overcast>
+        
+    </entry>
+    
+    <entry>
+        
+        <index>4</index>
+        
+        <day>07</day>
+        <month>10</month>
+        <year>2021</year>
+        
+        <date>2021-10-07</date>
+        <location>Sl-south</location>
+        
+        
+        <rainfall>there was a large amount of rainfall in area-a.</rainfall>
+        <temperature>26º C</temperature>
+        <dryspell>the air was very humid</dryspell>
+        <frost>there was no frost today</frost>
+        <mist>there was some mist in evening in area-a</mist>
+        <fog>there was no fog today</fog>
+        <sunny>today was not sunny</sunny>
+        <overcast>today was very overcast</overcast>
+        
+    </entry>
+    
+    
+    <entry>
+        
+        <index>3</index>
+        
+        <day>02</day>
+        <month>10</month>
+        <year>2021</year>
+        
+        <date>2021-10-02</date>
+        <location>Sl-south</location>
+        
+        
+        <rainfall>there was no rainfall today.</rainfall>
+        <temperature>25º C</temperature>
+        <dryspell>today was somewhat humid</dryspell>
+        <frost>there was no frost today</frost>
+        <mist>there was slight mist in evening in area-B</mist>
+        <fog>there was no fog today</fog>
+        <sunny>it was sunny today</sunny>
+        <overcast>it was not overcast today</overcast>
+        
+    </entry>
+    
+
+    <entry>
+        
+        <index>2</index>
+        
+        <day>25</day>
+        <month>9</month>
+        <year>2021</year>
+        
+        <date>2021-09-25</date>
+        <location>Sl-south</location>
+        
+        
+        <rainfall>there was no rainfall today.</rainfall>
+        <temperature>24º C</temperature>
+        <dryspell>air was not humid, it was dry</dryspell>
+        <frost>no frost</frost>
+        <mist>there was no mist today</mist>
+        <fog>there was no fog today</fog>
+        <sunny>today was sunny</sunny>
+        <overcast>today was not overcast</overcast>
+        
+    </entry>
+    
+    <entry>
+        
+        <index>1</index>
+        
+        <day>5</day>
+        <month>9</month>
+        <year>2021</year>
+        
+        <date>2021-09-05</date>
+        <location>Sl-south</location>
+        
+        
+        <rainfall>there was a small amount of rainfall.</rainfall>
+        <temperature>25º C</temperature>
+        <dryspell>air was mostly dry</dryspell>
+        <frost>no frost</frost>
+        <mist>there was a little mist on morning in area-A</mist>
+        <fog>there was no fog</fog>
+        <sunny>partly sunny today</sunny>
+        <overcast>today was slightly overcast</overcast>
+        
+    </entry>
+    
+    
+    <entry>
+        
+        <index>0</index>
+        
+        <day>25</day>
+        <month>8</month>
+        <year>2021</year>
+        
+        <date>2021-08-25</date>
+        <location>Sl-south</location>
+        
+        
+        <rainfall>there was a small amount of rainfall.</rainfall>
+        <temperature>25º C</temperature>
+        <dryspell>air was mostly humid</dryspell>
+        <frost>no frost</frost>
+        <mist>no mist today</mist>
+        <fog>there was no fog today</fog>
+        <sunny>today was mostly sunny</sunny>
+        <overcast>today was not overcast</overcast>
+        
+    </entry>
+    
+    
+</weather-data>
