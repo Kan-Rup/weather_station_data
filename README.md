@@ -1,9 +1,11 @@
 # weather_station_data
 Observation-data viewer for a weather station - simple app that uses Framework7
 
-====================================================================================================================
+=============================================================================================
 
-Directory : WeatherStationDat : If you start a server (such as http-server) in this directory, you should be able
+You can download the code as a zip from Github. Look for the green 'code' button.
+
+Directory : App (run server here) : If you start a server (such as http-server) in this directory, you should be able
 to access the functioning app through a browser, by entering the right ip/port code. Running the server, the terminal 
 would probably display which ip/port code to use.
 
@@ -15,13 +17,13 @@ the author. Most of the source-code content is in /pages/home.f7 . There is also
 /js/app.js .
 
 
-===================================================================================================================
+=============================================================================================
 
 This 'WeatherStationDat' app code is made public under the ' Mozilla Public License Version 2.0'
 Find the licence text following this link : https://www.mozilla.org/en-US/MPL/2.0/
 A copy of the licence document is also included in this directory.
 
-------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
 
 'WeatherStationDat' is a small basic app made using HTML, CSS, Javascript, JQuery, XML, JSON, and Framework7 
 framework. It was made as an implementation answer for a job vacany assignment. 
@@ -39,4 +41,4 @@ The app does not use custom server code, which would have helped make more effic
 server code was used, possibly only the user's request data would be transmitted from server, saving data usage.
 In this version the full weather record file is sent over.
 
-===================================================================================================================
+=============================================================================================
