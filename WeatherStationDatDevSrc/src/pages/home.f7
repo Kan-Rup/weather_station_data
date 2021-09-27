@@ -1,0 +1,864 @@
+<template>
+  <div class="page" data-name="home">
+    <!-- Top Navbar -->
+    <div class="navbar navbar-large">
+      <div class="navbar-bg"></div>
+      <div class="navbar-inner sliding">
+        <div class="title">WeatherStationDat</div>
+        <div class="title-large">
+          <div class="title-large-text">WeatherStationDat</div>
+        </div>
+      </div>
+    </div>
+    <!-- Toolbar-->
+    <div class="toolbar toolbar-bottom">
+      <div class="toolbar-inner">
+        <a href="#" class="link">Left Link</a>
+        <a href="#" class="link">Right Link</a>
+      </div>
+    </div>
+    <!-- Scrollable page content-->
+    <div class="page-content">
+    
+    
+    
+    
+    <!--CONTENT START-->
+    
+
+    
+    
+    
+      <form id="radioform">
+      <!--AREA SELECT RADIO BUTTONS-->
+      
+      <div class="list">
+      
+        <div class="block-title" style="margin-left:40px;"> Select Land Region : </div>
+        
+        <ul id="radioBtnList">
+        
+            <li>
+            <label class="item-radio item-content">
+                <!-- Checked by default -->
+                <input id="radio1" type="radio" name="my-radio" value="central" checked="checked"/>
+                <i class="icon icon-radio"></i>
+                <div class="item-inner">
+                <div class="item-title">Sri Lanka Central</div>
+                </div>
+            </label>
+            </li>
+        
+            <li>
+            <label class="item-radio item-content">
+                <!-- Checked by default -->
+                <input id="radio2" type="radio" name="my-radio" value="south" />
+                <i class="icon icon-radio"></i>
+                <div class="item-inner">
+                <div class="item-title">Sri Lanka South</div>
+                </div>
+            </label>
+            </li>
+            
+        </ul>
+        
+      </div>
+      
+      </form>
+      
+      
+      
+      
+      
+    
+    
+      <!--CALENDAR to select month and year-->
+      
+        <div id="calendarInputBack" class="block block-strong">
+
+        <p> <h4>SELECT A DATE (records start from August-2021) </h4> </p>
+
+        <div class="list no-hairlines-md">
+            <ul>
+                <li>
+                <div class="item-content item-input">
+                    <div class="item-inner">
+                    <div class="item-input-wrap">
+                        <input type="text" placeholder="pick a date here" readonly="readonly" id="calendarinput"/>
+                    </div>
+                    </div>
+                </div>
+                </li>
+            </ul>
+        </div>
+        </div>
+      
+
+      
+      
+      
+      
+      
+      <!--AUTOCOMPLETE with dropdown , select weather pattern-->
+      
+        <div class="list no-hairlines-md">
+        <div class="block-header" id="dropdown-header"> <h4> Weather Type </h4> </div>
+
+        <ul>
+            <li class="item-content item-input">
+            <div class="item-inner">
+                <div class="item-title item-label" id="wpatterns-label">Select weather pattern below:</div>
+                <div class="item-input-wrap">
+                <input id="autocomplete-showall" type="text" placeholder="weather type" />
+                </div>
+            </div>
+            </li>
+        </ul>
+
+        </div>
+
+
+        
+      
+      
+      
+      <!--Button to signal fetch data from server-->
+      
+        <div class="block block-strong">
+            
+            <button id="txtDataBtn">-- Get Data --</button>
+            
+        </div>
+        
+      
+      
+      
+      
+      
+        <!--SMART SELECT - program automatically selects two types of season when date is selected-->
+      
+        <li id="smartSelectList" class="list">
+
+        <a class="item-link smart-select smart-select-init" data-open-in="popup"  data-searchbar="false">
+
+            <select name="seasons-select" multiple>
+            
+                <optgroup label="Year's 4 Seasons">
+                    <option id="syA" name="yseasons" value="spring" selected>Spring Season</option>
+                    <option id="syB" name="yseasons" value="summer">Summer Season</option>
+                    <option id="syC" name="yseasons" value="autumn">Autumn Season</option>
+                    <option id="syD" name="yseasons" value="winter">Winter Season</option>
+                </optgroup>
+                
+                <optgroup label="Rainfall">
+                    <option id="srA" name="rseasons" value="dry" selected>Dry Season</option>
+                    <option id="srB" name="rseasons" value="wet">Wet Season</option>
+                </optgroup>
+            
+            </select>
+            
+            <div class="item-content">
+            <div class="item-inner">
+                <div class="item-title"> 
+                    <h4>Seasons Indicator </h4> 
+                    <p>(Seasons are selected and displayed here </p>
+                    <p>automatically when date is chosen above.</p> 
+                    <p> No input needed.)</p>
+                </div>
+            </div>
+            </div>
+            
+        </a>
+        </li>
+      
+      
+      
+      
+      
+      
+        <!--Slide SWIPER for fetched data display-->
+      
+        <div id="swiper-holder">
+
+        <div class="block-title"> <h4 id="slides-title">View Observation Data</h4> </div>
+        <div
+            data-pagination='{"el": ".swiper-pagination"}'
+            data-space-between="20"
+            class="swiper-container swiper-init demo-swiper"
+        >
+            <div class="swiper-pagination"></div>
+            
+            <div id="SLcontainer" class="swiper-wrapper">
+            
+                <div class="swiper-slide"> ( No data : Please import ) </div>
+                
+                
+            </div>
+            
+        </div>
+        
+        </div>
+        
+        
+
+        
+
+    <!--CONTENT END-->
+
+    
+    </div>
+  </div>
+</template>
+
+
+
+
+
+
+
+    
+
+    
+<style>
+
+    /*
+    styling, mostly to change background colours and to change fonts. 
+    some of the framework7 inputs have some specific styling.
+    */
+
+    
+  #radioBtnList{
+  
+    background-color: #ccddff;
+  }
+  
+  #calendarInputBack{
+  
+    background-color: #ccddff;
+  }
+
+  #autocomplete-showall{
+  
+    background-color: #ccddff;
+  }
+
+  #smartSelectList{
+  
+    background-color: #ffdab3;
+  }
+
+  
+  #dropdown-header{
+  
+    font-size: large;
+  }
+  
+  #wpatterns-label{
+        
+    font-size: 17px;
+    font-weight: bold;
+  }
+  
+  #slides-title{
+  
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+
+  
+  #txtDataBtn{
+  
+    height: 45px;
+  
+    font-size: 18px;
+    font-weight : bold;
+  
+    background-color: #85e085;
+    border-radius: 10px;
+  
+  }
+  #txtDataBtn:hover{
+  
+    background-color: #00ff99;
+  }
+  
+  
+  
+  
+    /*
+        below styling are for the swiper slider
+    */
+  
+  .demo-swiper .swiper-slide {
+    font-size: 17px;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    color: #000;
+    padding: 12px;
+    
+  }
+  .demo-swiper .swiper-slide {
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    background: #fff;
+    
+    background-color: #99ff99;
+  }
+  .demo-swiper {
+    margin: 0px 0 35px;
+    font-size: 18px;
+    height: 120px;
+  }
+  .demo-swiper.demo-swiper-auto .swiper-slide {
+    width: 85%;
+  }
+  .demo-swiper.demo-swiper-auto .swiper-slide:nth-child(2n) {
+    width: 70%;
+  }
+  .demo-swiper.demo-swiper-auto .swiper-slide:nth-child(3n) {
+    width: 30%;
+  }
+  
+  
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+    //weather data display swiper
+    let swiper;
+
+    
+    //variable for object that will hold user's selection data.
+    let appState;
+
+    //class for object that's used to select data that will be displayed.
+    class DataObject{
+
+        constructor(){
+        
+            this.selectedArea = "central";
+            this.selectedWeather = "rainfall";
+            
+            this.selectedMonth = "1";
+            this.selectedYear = "2021";
+        }
+    }
+
+
+
+
+
+
+    
+    
+
+    
+//--------------------------------------------------------------------------------------
+
+//send XMLHttpRequest for the weather-obs xml data
+function sendRequest(){
+
+    console.log("send-info-request function started.");
+
+    var xhttp = new XMLHttpRequest();
+    
+    
+    xhttp.onreadystatechange = function(){
+     
+        if(this.readyState == 4 && this.status == 200){
+        
+            
+            //processXML function is defined after this function.
+            //this is what's done after the xml data is available.
+        
+            processXML(this);
+        }
+    }
+    
+    
+    //there are two xml files, for the two areas that's possible to select
+    //using the radio buttons.
+    
+    
+    var logarea = appState.selectedArea;
+    
+    if(logarea == "central"){
+    
+        xhttp.open("GET","log-central.xml", true);
+    
+    } else if (logarea == "south"){
+    
+        xhttp.open("GET","log-south.xml", true);
+    }
+    
+    
+    xhttp.send();
+    
+    console.log("send-info-request function completed.");
+}
+
+
+
+
+
+
+
+//this function reads through all entries in the xml file returned, and
+//filters out the entries according to selection-input by the user.
+//
+//if a user-query xml file or json file was compiled by the server-side functions,
+//the data that's transmitted to client side could have been reduced,
+//because only a subset of entries are relevant to the user's query.
+//
+//but this instance of the app does not have custom server code,
+//so the whole xml file is transmitted to client.
+//so this is not the most efficient approach.
+
+function processXML(xml){
+
+    
+    var xmlDoc = xml.responseXML;
+    
+    //get the 'entry' tagged data list
+    var entryList = xmlDoc.getElementsByTagName("entry");
+    
+    
+    
+    var validIndexes = [];
+    
+    //loop through all entries blocks
+    for(let k = 0; k < entryList.length; k++){
+    
+        var yearMatch = false;
+        var monthMatch = false;
+
+        
+        //get the month and year tag data of the entry
+        var entryMonth = entryList[k].getElementsByTagName("month")[0].childNodes[0].nodeValue;
+        var entryYear = entryList[k].getElementsByTagName("year")[0].childNodes[0].nodeValue;
+        
+        
+        //use appstate object properties to check if user input month/year matches entry month/year
+        if(entryMonth == appState.selectedMonth){   monthMatch = true;  }
+        if(entryYear == appState.selectedYear){ yearMatch = true;   }
+        
+        
+        //add the current index to valid indexes list, if both year and month match.
+        if(yearMatch && monthMatch){    validIndexes.push(k);   }
+        
+    }
+    
+    //valid date-matching entry list index values are now contained in the validIndexes array.
+    
+    
+    
+    //obslides will contain the html code that will have text data extracted from the 'entry' xml data thats
+    //relevant to the user's query.
+    
+    var obslides = "";
+    
+    
+    //below code add the valid entry text in to observation slides
+    
+    if(validIndexes.length > 0){
+    
+    
+        for(let j = 0; j < entryList.length; j++){
+        
+            
+            var isValidIndex = false;
+            
+            //findout if the j index is a valid-entry index
+            
+            for(let m = 0; m < validIndexes.length; m++){
+            
+                if( j == validIndexes[m] ){
+                    
+                    isValidIndex = true;
+                    break;
+                } 
+            }
+            
+            
+
+            //if the j index is checked valid, add the j-index entry details to the obslide html.
+            //all text is collected into strval string, and that is added to obslides encased in
+            //a 'swiper-slide' class div
+            
+
+            if(isValidIndex){
+
+                console.log("adding index "+j+" data into slide collection");
+
+                var strval = " ( [Date]: ";
+                
+                strval += entryList[j].getElementsByTagName("date")[0].childNodes[0].nodeValue;
+                
+                strval += " ) ( [Location]: ";
+                
+                strval += entryList[j].getElementsByTagName("location")[0].childNodes[0].nodeValue;
+                
+                strval += " ) ( [Type]: ";
+                
+                strval += appState.selectedWeather.toString();
+                
+                strval += " ) ( [Entry]: ";
+                
+                strval += entryList[j].getElementsByTagName(appState.selectedWeather.toString())[0].childNodes[0].nodeValue;
+                
+                strval += " ) ";
+                
+                obslides += "<div class=\"swiper-slide\"><p>" + strval.toString() + "</p></div>";        
+            
+            }
+            
+        }
+        
+        
+        //if there are no query relevant indexes, indicate that in text, in the swiper.
+        
+    } else { obslides += "<div class=\"swiper-slide\"><p>" + "No entries recorded for selected month!" + "</p></div>";   }
+    
+    
+    
+    
+    //obslides html text is added to innerHTML of SLcontainer html element.
+    document.getElementById("SLcontainer").innerHTML = "";
+    document.getElementById("SLcontainer").innerHTML = obslides;
+
+    
+    //update slider after the new slides are put in,
+    //then make the first slide the selected slide.
+    
+    swiper.updateSlides(); 
+    swiper.slideTo(0,500,false);
+    
+}
+
+//--------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+//below the user input of area selection is stored in the appState object.
+
+function updateRadioSelect(clickedid, stateob){
+
+    //stateob will have the 'appState' object.
+    
+    //radio button clicked
+    var buttonClicked = clickedid;
+    
+    
+    var areas = document.getElementsByName('my-radio');
+    
+    for (let i of areas){
+    
+        i.checked = "";
+    }
+    
+    
+    document.getElementById(buttonClicked).checked = "checked";
+    
+    stateob.selectedArea = document.getElementById(buttonClicked).value;
+}
+
+
+
+
+
+//below, framework7 objects that correspond to each of the input fields and
+//the swiper, are created. They have to be made in the 'on page init' section.
+
+export default (props, { $, $f7, $on }) => {
+
+
+    $on('pageInit', () => {
+
+    
+       //app state object that will hold the user input selection
+       appState = new DataObject();
+       
+       
+       
+       //radio buttons
+       //------------------------------------------------------------------------------------
+
+        //$("radio1").on("click",updateRadioSelect("radio1", appState));
+       
+        document.getElementById('radio1').addEventListener("click", function(){
+        
+            updateRadioSelect("radio1", appState) 
+        });
+        
+        document.getElementById('radio2').addEventListener("click", function(){
+        
+            updateRadioSelect("radio2", appState) 
+        });
+        
+        updateRadioSelect("radio1", appState);
+        
+       //------------------------------------------------------------------------------------
+       
+       
+       
+       
+       
+        //calendar
+        //------------------------------------------------------------------------------------
+        
+        let calendarDefault;
+        
+        calendarDefault = $f7.calendar.create({
+            inputEl: '#calendarinput',
+        });
+        
+        
+        //the following instructions are done when the value of the calendar field changes --
+        
+        document.getElementById("calendarinput").addEventListener("change", () => {  
+                
+                let selectedDate;
+                selectedDate = calendarDefault.getValue();
+                
+                
+                //making a date object using the value of the calendar field.
+                //
+                let dateob = new Date(selectedDate);
+                
+                
+                //getting the month and year from the date object.
+                //
+                var mt = dateob.getMonth() + 1;
+                var yr = dateob.getFullYear();
+                
+                console.log("month :"+ mt +" year :"+yr);  
+                
+                
+                //select the two seasons that correspond to the month
+                //    
+                var seasonNumbers = selectSeasons(mt);
+                var seasonsValues = seasonNames(seasonNumbers);
+                
+                
+                //set the seasons to the smart select object (declared below)
+                //
+                smartSelectOb.setValue(seasonsValues);
+                
+                //change the app-state object properties according to month and year selected.
+                //
+                appState.selectedMonth = mt.toString();
+                appState.selectedYear = yr.toString();
+                
+            } 
+        );
+    
+        //------------------------------------------------------------------------------------
+       
+       
+       
+       
+       
+        //smart select
+        //------------------------------------------------------------------------------------
+        
+        let smartSelectOb;
+        smartSelectOb = $f7.smartSelect.create({
+        
+            el: '#smartSelectList',
+        
+        });
+        
+        //------------------------------------------------------------------------------------
+       
+       
+       
+       
+       
+        //auto complete
+        //------------------------------------------------------------------------------------
+        
+        const weatherptns = 'rainfall temperature dryspell frost mist fog sunny overcast'.split(' ');
+        let autocompleteDropdownAll;
+        
+        autocompleteDropdownAll = $f7.autocomplete.create({
+            
+            inputEl: '#autocomplete-showall',
+            openIn: 'dropdown',
+            
+            source: function (query, render) {
+                
+                var results = [];
+                // Find matched items
+                for (var i = 0; i < weatherptns.length; i++) {
+                    if (weatherptns[i].toLowerCase().indexOf(query.toLowerCase()) >= 0) {
+                    
+                        results.push(weatherptns[i]);
+                    }
+                }
+                // Render items by passing array with result items
+                render(results);
+                
+            }
+                
+        });
+        
+        document.getElementById("autocomplete-showall").addEventListener("change", () => { 
+        
+                appState.selectedWeather =  document.getElementById("autocomplete-showall").value;
+            } 
+        );
+        
+        //------------------------------------------------------------------------------------
+       
+       
+       
+       
+        //swiper slider
+        //------------------------------------------------------------------------------------
+        
+        swiper = $f7.swiper.create('.swiper-container', {
+            speed: 400,
+            spaceBetween: 100
+        });
+
+        //------------------------------------------------------------------------------------
+        
+        
+        
+        //button for data-get. add event-listener to 'Get Data' button
+        //------------------------------------------------------------------------------------
+        
+        document.getElementById("txtDataBtn").addEventListener("click",sendRequest);
+        
+        //------------------------------------------------------------------------------------
+        
+    })
+    
+    
+    return $render;
+}
+
+
+
+
+//this function selects year's season and rain season by number.
+//
+function selectSeasons(month){
+
+
+    //spring-months = [3,4,5];
+    //summer-months = [6,7,8];
+    //autumn-months = [9,10,11];
+    //winter-months = [12,1,2];
+    
+    //dry-months    = [11,12,1,2,3,4];
+    //wet-months    = [5,6,7,8,9,10];
+    
+    
+    
+    //switch statement is used for selecting two season number values that correspond to 
+    //each month number.
+    
+    //[year season , rain season]
+    
+    var seasonsN = [1,1];
+    
+    switch(month){
+        
+        case 1: seasonsN = [4,1]; break;
+        case 2: seasonsN = [4,1]; break;
+        case 3: seasonsN = [1,1]; break;
+        case 4: seasonsN = [1,1]; break;
+        case 5: seasonsN = [1,2]; break;
+        case 6: seasonsN = [2,2]; break;
+        case 7: seasonsN = [2,2]; break;
+        case 8: seasonsN = [2,2]; break;
+        case 9: seasonsN = [3,2]; break;
+        case 10: seasonsN = [3,2]; break;
+        case 11: seasonsN = [3,1]; break;
+        case 12: seasonsN = [4,1]; break;
+        default: seasonsN = null; break;
+    
+    }
+    
+    return seasonsN;
+}
+
+
+
+
+
+//this function selects the text name that corresponds to each season number.
+//
+function seasonNames(twoSeasons){
+
+
+    var yseasonvalue = "spring";
+    var rseasonvalue = "dry";
+    
+    
+    if(twoSeasons[0] == 1){
+    
+        yseasonvalue = "spring";
+    
+    } else if (twoSeasons[0] == 2){
+    
+        yseasonvalue = "summer";
+    
+    } else if (twoSeasons[0] == 3){
+    
+        yseasonvalue = "autumn";
+   
+    } else if (twoSeasons[0] == 4){
+
+        yseasonvalue = "winter";
+        
+    }
+    
+    if(twoSeasons[1] == 1){
+    
+        rseasonvalue = "dry";
+    
+    } else if (twoSeasons[1] == 2){
+
+        rseasonvalue = "wet";
+        
+    } 
+    
+    
+    var arr = [yseasonvalue,rseasonvalue];
+    return arr;
+}
+
+
+
+</script>
+
+    
+
+    
+
+
+
+
+
